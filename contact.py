@@ -34,6 +34,6 @@ def edit_contact(contact_id, name, phone, email):
 def delete_contact(contact_id):
     conn = sqlite3.connect('contacts.db')
     cursor = conn.cursor()
-    cursor.execute('DELETE FROM contacts WHERE id = ?', (contact_id))
+    cursor.execute('DELETE FROM contacts WHERE id = ?', (contact_id,))
     conn.commit()
     conn.close()
