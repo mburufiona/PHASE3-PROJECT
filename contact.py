@@ -19,7 +19,7 @@ def view_contacts():
 def search_contact(name):
     conn = sqlite3.connect('contacts.db')
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM contacts WHERE name LIKE ?", ('%' +name, + '%'))
+    cursor.execute("SELECT * FROM contacts WHERE name LIKE ?", ('%' + name + '%',))
     contact = cursor.fetchall()
     conn.close()
     return contact
