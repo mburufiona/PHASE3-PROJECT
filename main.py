@@ -1,15 +1,10 @@
-# import functions from the contact file
-from contact import (
-    add_contact,
-    view_contacts,
-    search_contact,
-    edit_contact,
-    delete_contact
-)
+# main.py
+from contact_manager import ContactManager
+
 def main():
-    # Main loop for the contact book
+    manager = ContactManager()  # Initialize the contact manager
+
     while True:
-        # Display the menu options
         print("\nContact Book")
         print("1. Add Contact")
         print("2. View Contacts")
@@ -18,53 +13,45 @@ def main():
         print("5. Delete Contact")
         print("6. Exit")
         
-        # Get user input for menu choice
         choice = int(input("Enter your choice: "))
 
-        # option to add a new contact
         if choice == 1:
-            name = input("Enter name: ") # prompt for name
-            phone = input("Enter phone: ") # prompt for phone
-            email = input("Enter email: ") # prompt for email
-            add_contact(name, phone, email) # call function to add the contact
-            print("Contact added!") # Confirmation message
+            name = input("Enter name: ")
+            phone = input("Enter phone: ")
+            email = input("Enter email: ")
+            manager.add_contact(name, phone, email)
+            print("Contact added!")
 
-        # option to view all contacts
         elif choice == 2:
-            contacts = view_contacts() # Retrieve all contacts
-            for contact in contacts: # loop and display each contact
+            contacts = manager.view_contacts()
+            for contact in contacts:
                 print(contact)
 
-        # option to search for contacts
         elif choice == 3:
-            name = input("Enter name: ") # prompt for name to search
-            contacts = search_contact(name) # call function to search for contacts
-            for contact in contacts: # loop and display found contact
+            name = input("Enter name: ")
+            contacts = manager.search_contact(name)
+            for contact in contacts:
                 print(contact)
 
-        # Option to edit an existing contact
         elif choice == 4:
             contact_id = int(input("Enter contact id: "))
             name = input("Enter name: ")
             phone = input("Enter phone: ")
             email = input("Enter email: ")
-            edit_contact(contact_id, name, phone, email) # call function to update the contact
+            manager.edit_contact(contact_id, name, phone, email)
             print("Contact updated!")
 
-        # Option to delete a contact
         elif choice == 5:
             contact_id = int(input("Enter contact id: "))
-            delete_contact(contact_id) # call function to delete contact
+            manager.delete_contact(contact_id)
             print("Contact deleted!")
 
-        # option to exit the program
         elif choice == 6:
             print("Exit...Bye")
             break
 
         else:
-            print("Invalid choice. PLease try again") # E rror message for invalid choices
+            print("Invalid choice. Please try again.")
 
-# Entry point of the program
 if __name__ == "__main__":
-    main() # call the main function to run the program
+    main()
