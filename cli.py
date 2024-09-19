@@ -59,7 +59,7 @@ def main():
 
         # option to exit the program
         elif choice == 6:
-            print("Exit...")
+            print("Exit...Bye")
             break
 
         else:
