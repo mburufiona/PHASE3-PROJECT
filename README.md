@@ -56,6 +56,10 @@ When the application runs, you will see a menu with the following options:
 The application uses an SQLite database called **contacts.db** to store contact information.
 The database is created automatically when you first add a contact.
 
+The contact Manager class ensures functionality of the contact book application, providing methods to manage contacts.
+
+The class ensures that all database operations are efficiently handled.
+
 ## Contributions
 Feel free to submit issues or create pull requests to improve the application.
 I appreciate any contributions that make the application more user-friendly and efficient.
